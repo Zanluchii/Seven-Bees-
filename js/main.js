@@ -145,7 +145,7 @@ const compareData = {
   ],
   seven: [
     "Conversação desde a primeira aula",
-    "Turmas reduzidas: todo mundo fala, todo aula",
+    "Turmas reduzidas: todo mundo fala, toda aula",
     "Turmas por faixa etária e nível de inglês",
     "Você usa o inglês de verdade, com confiança",
   ],
