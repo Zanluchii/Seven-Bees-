@@ -9,7 +9,8 @@ no navegador ou publicar a pasta em qualquer hospedagem estática (Netlify, Verc
 index.html        página única com todas as seções
 css/style.css     estilos (cores da marca em :root)
 js/main.js        interações + CONFIG (preços, cursos, WhatsApp, unidades)
-assets/           favicon e futuras imagens
+assets/           favicon
+assets/videos/    vídeos (.mp4) e capas (.jpg)
 ```
 
 ## Recursos interativos
@@ -25,6 +26,7 @@ assets/           favicon e futuras imagens
 - Calculadora "Quanto custa não falar inglês?" (Empresas)
 - **Abelhas voando** pelas seções (fogem do cursor) e **abelha guia "Bee"** com dicas por seção
 - **Depoimentos** em carrossel (aparece quando houver depoimentos em `CONFIG.testimonials`)
+- **Vídeos**: "Medo da primeira aula?" (dicas) e depoimentos em vídeo da professora Tália e do aluno Paulo (`assets/videos/`)
 - FAQ, botão flutuante de WhatsApp, menu mobile, animações
 
 ## Como editar

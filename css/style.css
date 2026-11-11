@@ -629,3 +629,58 @@ input.is-invalid, select.is-invalid { border-color: #E5484D; background: #FFF5F5
 @media (prefers-reduced-motion: reduce) {
   .bee-layer { display: none; }
 }
+
+/* =========================================================
+   Vídeos
+   ========================================================= */
+.vcard { position: relative; margin: 0; }
+.vcard video {
+  width: 100%; aspect-ratio: 9 / 16; border-radius: 24px; background: var(--blue-900); display: block; object-fit: cover;
+  box-shadow: 0 30px 60px -28px rgba(10,31,94,.6);
+}
+.vcard__cover {
+  position: absolute; left: 0; right: 0; top: 0; aspect-ratio: 9 / 16; border: 0; padding: 0; cursor: pointer; border-radius: 24px;
+  background: linear-gradient(180deg, rgba(10,31,94,0) 45%, rgba(10,31,94,.7) 100%);
+  display: grid; place-items: center; transition: background .25s, opacity .25s;
+}
+.vcard__cover:hover { background: linear-gradient(180deg, rgba(10,31,94,.15) 0%, rgba(10,31,94,.75) 100%); }
+.vcard__play {
+  width: 78px; height: 78px; border-radius: 50%; background: var(--yellow); color: var(--blue-900); display: grid; place-items: center;
+  transition: transform .2s; animation: play-pulse 2s infinite;
+}
+.vcard__play svg { width: 34px; height: 34px; margin-left: 4px; }
+.vcard__cover:hover .vcard__play { transform: scale(1.1); }
+.vcard__badge {
+  position: absolute; top: 16px; left: 16px; font: 700 .78rem var(--font-head); color: #fff; background: var(--blue);
+  padding: .45em .9em; border-radius: 999px; box-shadow: var(--shadow-sm);
+}
+.vcard__badge--yellow { background: var(--yellow); color: var(--blue-900); }
+.vcard.is-playing .vcard__cover { opacity: 0; pointer-events: none; }
+.vcard figcaption { padding: 14px 6px 0; }
+.vcard figcaption strong { display: block; font-family: var(--font-head); font-size: 1.1rem; color: var(--blue-900); }
+.vcard figcaption small { color: var(--muted); font-size: .9rem; }
+@keyframes play-pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(255,184,0,.6); } 60% { box-shadow: 0 0 0 16px rgba(255,184,0,0); } }
+
+/* Medo da primeira aula */
+.fear { display: grid; grid-template-columns: 360px 1fr; gap: 64px; align-items: center; }
+.fear__video { position: relative; }
+.fear__sticker { right: -40px; top: 40px; transform: rotate(6deg); background: var(--yellow); z-index: 4; }
+.fear__sticker .script { color: var(--blue); }
+.fear__copy h2 .script { color: var(--blue); }
+.fear__lead { color: var(--muted); font-size: 1.1rem; }
+.checks--blue li { color: var(--ink); }
+.checks--blue li::before { background: var(--blue); }
+
+/* Depoimentos em vídeo */
+.vtesti { display: grid; grid-template-columns: repeat(2, minmax(0, 320px)); justify-content: center; gap: 32px; margin-bottom: 48px; }
+
+@media (max-width: 960px) {
+  .fear { grid-template-columns: 1fr; gap: 40px; }
+  .fear__video { justify-self: center; width: min(340px, 85%); }
+  .fear__sticker { right: -16px; }
+}
+@media (max-width: 600px) {
+  .vtesti { grid-template-columns: 1fr; justify-items: center; gap: 36px; }
+  .vtesti .vcard { width: min(320px, 88%); }
+  .vcard__play { width: 64px; height: 64px; }
+}

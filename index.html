@@ -30,7 +30,7 @@
       <a href="#cursos">Cursos</a>
       <a href="#unidades">Unidades</a>
       <a href="#curiosidades">Bee Curious</a>
-      <a href="#depoimentos" data-nav-testi hidden>Depoimentos</a>
+      <a href="#depoimentos">Depoimentos</a>
       <a href="#faq">Dúvidas</a>
       <a href="#aula-gratis" class="btn btn--yellow nav__cta">Aula grátis</a>
     </nav>
@@ -191,6 +191,35 @@
   </div>
 </section>
 
+<!-- ============ MEDO DA PRIMEIRA AULA (vídeo) ============ -->
+<section class="section section--soft" id="primeira-aula" data-bees="1">
+  <div class="container fear">
+    <div class="fear__video reveal">
+      <figure class="vcard vcard--lg">
+        <video src="assets/videos/dicas-sem-medo.mp4" poster="assets/videos/dicas-sem-medo.jpg" preload="none" playsinline></video>
+        <button class="vcard__cover" aria-label="Assistir: dicas para não ter medo da primeira aula">
+          <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="vcard__badge">▶ Dicas · 30s</span>
+        </button>
+      </figure>
+      <div class="sticker fear__sticker">Sem medo! <span class="script">You got this</span> 💪</div>
+    </div>
+    <div class="fear__copy reveal">
+      <span class="eyebrow">Primeira aula</span>
+      <h2>Tá com medo da <span class="script">primeira aula?</span></h2>
+      <p class="fear__lead">É normal! Muita gente chega achando que vai travar, que vai ficar perdida ou que vai ser a única que não sabe nada. Dá o play: separamos <b>algumas dicas</b> para você entrar na sala tranquilo.</p>
+      <ul class="checks checks--blue">
+        <li>Turmas organizadas pela sua idade e nível</li>
+        <li>Ambiente leve, sem julgamento: errar faz parte</li>
+        <li>Professores que acompanham você de perto</li>
+      </ul>
+      <div class="hero__ctas" style="margin-bottom:0">
+        <a href="#aula-gratis" class="btn btn--blue btn--lg">Fazer uma aula experimental</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ AULA GRÁTIS ============ -->
 <section class="section section--yellow" id="aula-gratis">
   <div class="container trial">
@@ -289,19 +318,37 @@
 </section>
 
 <!-- ============ DEPOIMENTOS ============ -->
-<section class="section section--soft" id="depoimentos" hidden>
+<section class="section section--soft" id="depoimentos">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Depoimentos</span>
       <h2>Quem é da colmeia <span class="script">recomenda</span></h2>
       <p>Alunos, pais e professores contam como é aprender inglês na Seven Bees.</p>
     </div>
-    <div class="testi reveal">
+    <div class="vtesti reveal">
+      <figure class="vcard">
+        <video src="assets/videos/professora.mp4" poster="assets/videos/professora.jpg" preload="none" playsinline></video>
+        <button class="vcard__cover" aria-label="Assistir depoimento da professora Tália">
+          <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="vcard__badge vcard__badge--yellow">Depoimento · Professora</span>
+        </button>
+        <figcaption><strong>Teacher Tália</strong><small>Professora Seven Bees · fala sobre a nossa metodologia</small></figcaption>
+      </figure>
+      <figure class="vcard">
+        <video src="assets/videos/depoimento-aluno.mp4" poster="assets/videos/depoimento-aluno.jpg" preload="none" playsinline></video>
+        <button class="vcard__cover" aria-label="Assistir depoimento do aluno Paulo">
+          <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+          <span class="vcard__badge">Depoimento · Aluno</span>
+        </button>
+        <figcaption><strong>Paulo</strong><small>Aluno Seven Bees · conta como foi aprender inglês aqui</small></figcaption>
+      </figure>
+    </div>
+    <div class="testi reveal" id="testiText" hidden>
       <button class="testi__arrow testi__arrow--prev" aria-label="Depoimento anterior">‹</button>
       <div class="testi__track" id="testiTrack" tabindex="0" aria-label="Depoimentos"></div>
       <button class="testi__arrow testi__arrow--next" aria-label="Próximo depoimento">›</button>
     </div>
-    <div class="testi__dots" id="testiDots"></div>
+    <div class="testi__dots" id="testiDots" hidden></div>
   </div>
 </section>
 

@@ -716,7 +716,8 @@ calc();
     "aula-gratis": { text: "A primeira aula é por nossa conta! Preencha e a gente confirma pelo <b>WhatsApp</b>.", label: "Preencher", href: "#trialForm" },
     unidades: { text: "Temos <b>2 unidades</b> em Londrina. Toque em uma para ver no mapa 📍", label: "Ver unidades", href: ".units" },
     curiosidades: { text: "Toque nos cards para <b>virar</b> e aprender expressões do dia a dia!", label: "Virar um card", href: "#flips", flip: true },
-    depoimentos: { text: "Veja o que nossos <b>alunos</b> dizem sobre a Seven Bees 💛", label: "Ler depoimentos", href: "#testiTrack" },
+    "primeira-aula": { text: "Medo da primeira aula? Relaxa! Dá o <b>play</b> nas dicas 😉", label: "Assistir o vídeo", href: "#primeira-aula .vcard", play: true },
+    depoimentos: { text: "Assista a <b>professora Tália</b> e o <b>aluno Paulo</b> contando como é a Seven Bees 💛", label: "Assistir depoimento", href: "#depoimentos .vcard", play: true },
     empresas: { text: "Arraste as barrinhas e veja <b>quanto custa não falar inglês</b> 💸", label: "Simular", href: ".calc" },
     faq: { text: "Ficou com dúvida? Me chama no <b>WhatsApp</b> que a equipe responde!", label: "Chamar no WhatsApp", href: `https://wa.me/${CONFIG.whatsapp}` },
     final: { text: "Pronto para entrar na colmeia? 🐝 Bora começar!", label: "Matricular agora", href: "#cursos" },
@@ -750,6 +751,7 @@ calc();
     target.scrollIntoView({ block: "center" });
     target.classList.remove("bee-target"); void target.offsetWidth; target.classList.add("bee-target");
     if (tip.flip) setTimeout(() => { const f = $(".flip"); f && f.click(); }, 600);
+    if (tip.play) setTimeout(() => { const c = $(".vcard__cover", target); c && c.click(); }, 600);
     bubble.classList.remove("is-on");
   });
   bee.addEventListener("click", () => {
@@ -774,9 +776,8 @@ calc();
 (function testimonials() {
   const list = CONFIG.testimonials || [];
   if (!list.length) return;
-  $("#depoimentos").hidden = false;
-  const navLink = $("[data-nav-testi]");
-  if (navLink) navLink.hidden = false;
+  $("#testiText").hidden = false;
+  $("#testiDots").hidden = false;
   const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const track = $("#testiTrack"), dots = $("#testiDots");
   track.innerHTML = list.map((t) => `
@@ -820,4 +821,26 @@ calc();
     const max = track.scrollWidth - track.clientWidth - 2;
     if (track.scrollLeft >= max) track.scrollTo({ left: 0 }); else track.scrollBy({ left: step() });
   }, 6000);
+})();
+
+/* ---------- Vídeos (dicas e depoimentos) ---------- */
+(function videos() {
+  const cards = $$(".vcard");
+  cards.forEach((card) => {
+    const video = $("video", card), cover = $(".vcard__cover", card);
+    cover.addEventListener("click", () => {
+      // pausa os outros vídeos
+      cards.forEach((c) => { if (c !== card) $("video", c).pause(); });
+      video.controls = true;
+      video.muted = false;
+      card.classList.add("is-playing");
+      video.play().catch(() => { video.muted = true; video.play(); });
+    });
+    video.addEventListener("ended", () => { card.classList.remove("is-playing"); video.controls = false; video.load(); });
+  });
+  // pausa vídeos que saem da tela
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (!e.isIntersecting) e.target.pause(); });
+  }, { threshold: 0.2 });
+  cards.forEach((c) => vio.observe($("video", c)));
 })();
