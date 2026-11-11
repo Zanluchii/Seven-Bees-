@@ -30,6 +30,7 @@
       <a href="#cursos">Cursos</a>
       <a href="#unidades">Unidades</a>
       <a href="#curiosidades">Bee Curious</a>
+      <a href="#depoimentos" data-nav-testi hidden>Depoimentos</a>
       <a href="#faq">Dúvidas</a>
       <a href="#aula-gratis" class="btn btn--yellow nav__cta">Aula grátis</a>
     </nav>
@@ -47,7 +48,7 @@
 <main>
 
 <!-- ============ HERO ============ -->
-<section class="hero">
+<section class="hero" id="inicio" data-bees="2">
   <div class="hero__scribble" aria-hidden="true">ee</div>
   <div class="container hero__grid">
     <div class="hero__copy reveal">
@@ -98,7 +99,7 @@
 </section>
 
 <!-- ============ MÉTODO ============ -->
-<section class="section" id="metodo">
+<section class="section" id="metodo" data-bees="1">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Metodologia Seven Bees</span>
@@ -145,7 +146,7 @@
 </section>
 
 <!-- ============ TESTE DE NÍVEL ============ -->
-<section class="section section--blue" id="teste">
+<section class="section section--blue" id="teste" data-bees="2">
   <div class="container">
     <div class="section__head section__head--light reveal">
       <span class="eyebrow eyebrow--yellow">Teste rápido · 1 minuto</span>
@@ -161,7 +162,7 @@
 </section>
 
 <!-- ============ CURSOS / LOJA ============ -->
-<section class="section" id="cursos">
+<section class="section" id="cursos" data-bees="1">
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Cursos e planos</span>
@@ -276,7 +277,7 @@
 </section>
 
 <!-- ============ CURIOSIDADES ============ -->
-<section class="section section--blue section--texture" id="curiosidades">
+<section class="section section--blue section--texture" id="curiosidades" data-bees="2">
   <div class="container">
     <div class="section__head section__head--light reveal">
       <span class="eyebrow eyebrow--yellow">Bee Curious</span>
@@ -284,6 +285,23 @@
       <p>Toque nos cards e descubra. É assim que a gente aprende: com curiosidade.</p>
     </div>
     <div class="flips" id="flips"></div>
+  </div>
+</section>
+
+<!-- ============ DEPOIMENTOS ============ -->
+<section class="section section--soft" id="depoimentos" hidden>
+  <div class="container">
+    <div class="section__head reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2>Quem é da colmeia <span class="script">recomenda</span></h2>
+      <p>Alunos, pais e professores contam como é aprender inglês na Seven Bees.</p>
+    </div>
+    <div class="testi reveal">
+      <button class="testi__arrow testi__arrow--prev" aria-label="Depoimento anterior">‹</button>
+      <div class="testi__track" id="testiTrack" tabindex="0" aria-label="Depoimentos"></div>
+      <button class="testi__arrow testi__arrow--next" aria-label="Próximo depoimento">›</button>
+    </div>
+    <div class="testi__dots" id="testiDots"></div>
   </div>
 </section>
 
@@ -319,7 +337,7 @@
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="section section--soft" id="faq">
+<section class="section section--soft" id="faq" data-bees="1">
   <div class="container container--narrow">
     <div class="section__head reveal">
       <span class="eyebrow">Dúvidas frequentes</span>
@@ -355,7 +373,7 @@
 </section>
 
 <!-- ============ CTA FINAL ============ -->
-<section class="final-cta">
+<section class="final-cta" id="final" data-bees="3">
   <div class="container final-cta__inner reveal">
     <h2>Seu futuro <span class="script">não pode esperar.</span></h2>
     <p>Invista em inglês hoje e colha os resultados amanhã.</p>
@@ -473,6 +491,18 @@
       </div>
     </form>
   </div>
+</div>
+
+<!-- Abelha guia -->
+<div class="guide" id="guide">
+  <div class="guide__bubble" id="guideBubble" role="status" aria-live="polite">
+    <button class="guide__close" id="guideClose" aria-label="Fechar dica">✕</button>
+    <p id="guideText"></p>
+    <a href="#" class="guide__action" id="guideAction"></a>
+  </div>
+  <button class="guide__bee" id="guideBee" aria-label="Abelha guia: mostrar dica">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#bee"/></svg>
+  </button>
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>

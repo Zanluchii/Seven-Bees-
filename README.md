@@ -23,6 +23,8 @@ assets/           favicon e futuras imagens
 - Unidades com mapa e botão "Como chegar"
 - Cards "Bee Curious" (expressões e curiosidades) que viram ao toque
 - Calculadora "Quanto custa não falar inglês?" (Empresas)
+- **Abelhas voando** pelas seções (fogem do cursor) e **abelha guia "Bee"** com dicas por seção
+- **Depoimentos** em carrossel (aparece quando houver depoimentos em `CONFIG.testimonials`)
 - FAQ, botão flutuante de WhatsApp, menu mobile, animações
 
 ## Como editar
@@ -30,7 +32,10 @@ Tudo que muda com frequência fica no objeto `CONFIG` no início de `js/main.js`
 - `whatsapp`: número que recebe pedidos e agendamentos
 - `promoFirstMonth`: valor promocional da 1ª mensalidade do Plano Grupo
 - `courses`: nome, descrição e preços (`price.grupo` / `price.vip`). Use `null` para "Sob consulta".
+- `testimonials`: depoimentos (nome, papel, texto e foto opcional)
 - `units`: endereços usados no mapa
+
+As abelhas voando são controladas pelo atributo `data-bees="N"` nas seções do `index.html` (N = quantidade).
 
 ## Pagamento online
 Hoje a matrícula é registrada e enviada para o WhatsApp da escola, que confirma turma e envia a cobrança.

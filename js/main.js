@@ -46,6 +46,13 @@ const CONFIG = {
     },
   ],
 
+  // Depoimentos: adicione um objeto por depoimento.
+  // foto é opcional (ex.: "assets/depoimentos/paulo.jpg"); sem foto aparece a inicial do nome.
+  // A seção só aparece no site quando houver pelo menos 1 depoimento.
+  testimonials: [
+    // { nome: "Paulo", papel: "Aluno · Teens", texto: "Escreva aqui o depoimento.", foto: "" },
+  ],
+
   units: [
     { name: "Unidade Zona Norte", address: "Av. Alexandre Santoro, 1051 - Jardim dos Estados, Londrina - PR, 86082-000" },
     { name: "Unidade Iate Clube", address: "Av. Higienópolis, 2135 - Higienópolis, Londrina - PR" },
@@ -614,3 +621,203 @@ function calc() {
 ops.addEventListener("input", calc);
 val.addEventListener("input", calc);
 calc();
+
+/* ---------- Abelhas voando pelas seções ---------- */
+(function flyingBees() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const swarms = [];
+  let mouse = { x: -9999, y: -9999 };
+  addEventListener("pointermove", (e) => { mouse = { x: e.clientX, y: e.clientY }; }, { passive: true });
+
+  $$("[data-bees]").forEach((section) => {
+    const layer = document.createElement("div");
+    layer.className = "bee-layer";
+    layer.setAttribute("aria-hidden", "true");
+    section.prepend(layer);
+    const n = +section.dataset.bees || 1;
+    const bees = [];
+    for (let i = 0; i < n; i++) {
+      const el = document.createElement("div");
+      el.className = "bee-fly" + (i % 2 ? " bee-fly--sm" : "");
+      el.innerHTML = '<svg viewBox="0 0 64 64"><use href="#bee"/></svg>';
+      layer.append(el);
+      bees.push({
+        el, x: Math.random() * 0.8 + 0.1, y: Math.random() * 0.7 + 0.15,
+        a: Math.random() * Math.PI * 2, speed: 55 + Math.random() * 45,
+        turn: 0, face: 1, trailT: 0,
+      });
+    }
+    const swarm = { section, layer, bees, visible: false };
+    swarms.push(swarm);
+    new IntersectionObserver(([e]) => { swarm.visible = e.isIntersecting; }).observe(section);
+  });
+
+  let last = performance.now();
+  function tick(now) {
+    const dt = Math.min((now - last) / 1000, 0.05);
+    last = now;
+    swarms.forEach((s) => {
+      if (!s.visible) return;
+      const r = s.layer.getBoundingClientRect();
+      const W = r.width, H = r.height;
+      s.bees.forEach((b) => {
+        // vagueia suavemente
+        b.turn += (Math.random() - 0.5) * 6 * dt;
+        b.turn *= 0.96;
+        b.a += b.turn * dt * 3;
+        let px = b.x * W, py = b.y * H;
+        // foge do cursor
+        const dx = px + r.left - mouse.x, dy = py + r.top - mouse.y;
+        const dist = Math.hypot(dx, dy);
+        let boost = 1;
+        if (dist < 130) {
+          const flee = Math.atan2(dy, dx);
+          b.a += Math.atan2(Math.sin(flee - b.a), Math.cos(flee - b.a)) * 0.25;
+          boost = 3;
+        }
+        // volta para dentro da área
+        const margin = 40;
+        if (px < margin || px > W - margin || py < margin || py > H - margin) {
+          const toCenter = Math.atan2(H / 2 - py, W / 2 - px);
+          b.a += Math.atan2(Math.sin(toCenter - b.a), Math.cos(toCenter - b.a)) * 0.08;
+        }
+        px += Math.cos(b.a) * b.speed * boost * dt;
+        py += Math.sin(b.a) * b.speed * boost * dt + Math.sin(now / 180 + b.speed) * 0.6;
+        b.x = Math.max(0, Math.min(1, px / W));
+        b.y = Math.max(0, Math.min(1, py / H));
+        const vx = Math.cos(b.a);
+        if (Math.abs(vx) > 0.2) b.face = vx > 0 ? 1 : -1;
+        b.el.style.transform = `translate(${px - 19}px, ${py - 19}px) scaleX(${b.face})`;
+        // rastro pontilhado
+        b.trailT += dt;
+        if (b.trailT > 0.12) {
+          b.trailT = 0;
+          const t = document.createElement("span");
+          t.className = "bee-trail";
+          t.style.left = `${px - b.face * 16}px`;
+          t.style.top = `${py + 4}px`;
+          s.layer.append(t);
+          setTimeout(() => t.remove(), 1100);
+        }
+      });
+    });
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+
+/* ---------- Abelha guia ---------- */
+(function guideBee() {
+  const tips = {
+    inicio: { text: "Oi! Eu sou a <b>Bee</b> 🐝 Vou te mostrar a escola. Que tal descobrir seu nível de inglês?", label: "Fazer o teste", href: "#teste" },
+    metodo: { text: "Clique em <b>Tradicional</b> e <b>Seven Bees</b> para ver a diferença das nossas turmas!", label: "Comparar turmas", href: ".compare" },
+    teste: { text: "Responda as perguntas e eu te indico o <b>curso ideal</b>. Leva só 1 minuto!", label: "Começar", href: "#quiz" },
+    cursos: { text: "Escolha <b>Plano Grupo</b> ou <b>VIP</b> e adicione ao carrinho. A 1ª mensalidade sai por <b>R$ 34,90</b>!", label: "Ver promoção", href: ".promo-banner" },
+    "aula-gratis": { text: "A primeira aula é por nossa conta! Preencha e a gente confirma pelo <b>WhatsApp</b>.", label: "Preencher", href: "#trialForm" },
+    unidades: { text: "Temos <b>2 unidades</b> em Londrina. Toque em uma para ver no mapa 📍", label: "Ver unidades", href: ".units" },
+    curiosidades: { text: "Toque nos cards para <b>virar</b> e aprender expressões do dia a dia!", label: "Virar um card", href: "#flips", flip: true },
+    depoimentos: { text: "Veja o que nossos <b>alunos</b> dizem sobre a Seven Bees 💛", label: "Ler depoimentos", href: "#testiTrack" },
+    empresas: { text: "Arraste as barrinhas e veja <b>quanto custa não falar inglês</b> 💸", label: "Simular", href: ".calc" },
+    faq: { text: "Ficou com dúvida? Me chama no <b>WhatsApp</b> que a equipe responde!", label: "Chamar no WhatsApp", href: `https://wa.me/${CONFIG.whatsapp}` },
+    final: { text: "Pronto para entrar na colmeia? 🐝 Bora começar!", label: "Matricular agora", href: "#cursos" },
+  };
+  const bubble = $("#guideBubble"), bee = $("#guideBee"), text = $("#guideText"), action = $("#guideAction");
+  let muted = store.get("sb-guide-muted", false);
+  let current = null, hideTimer;
+
+  function show(id, force) {
+    const tip = tips[id];
+    if (!tip) return;
+    const changed = id !== current;
+    current = id;
+    text.innerHTML = tip.text;
+    action.textContent = tip.label + " →";
+    action.href = tip.href.startsWith("http") ? tip.href : "#";
+    action.target = tip.href.startsWith("http") ? "_blank" : "";
+    if (muted && !force) return;
+    if (changed) { bee.classList.remove("is-flying"); void bee.offsetWidth; bee.classList.add("is-flying"); }
+    bubble.classList.add("is-on");
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => bubble.classList.remove("is-on"), innerWidth < 600 ? 5000 : 9000);
+  }
+
+  action.addEventListener("click", (e) => {
+    const tip = tips[current];
+    if (!tip || tip.href.startsWith("http")) return;
+    e.preventDefault();
+    const target = $(tip.href);
+    if (!target) return;
+    target.scrollIntoView({ block: "center" });
+    target.classList.remove("bee-target"); void target.offsetWidth; target.classList.add("bee-target");
+    if (tip.flip) setTimeout(() => { const f = $(".flip"); f && f.click(); }, 600);
+    bubble.classList.remove("is-on");
+  });
+  bee.addEventListener("click", () => {
+    if (bubble.classList.contains("is-on")) { bubble.classList.remove("is-on"); return; }
+    muted = false; store.set("sb-guide-muted", false);
+    show(current || "inicio", true);
+  });
+  $("#guideClose").addEventListener("click", () => {
+    bubble.classList.remove("is-on");
+    muted = true; store.set("sb-guide-muted", true);
+    toast("Tudo bem! Toque na abelhinha quando quiser uma dica 🐝");
+  });
+
+  const secObs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) show(e.target.id); });
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  Object.keys(tips).forEach((id) => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+  setTimeout(() => { if (!current) show("inicio"); }, 1500);
+})();
+
+/* ---------- Depoimentos ---------- */
+(function testimonials() {
+  const list = CONFIG.testimonials || [];
+  if (!list.length) return;
+  $("#depoimentos").hidden = false;
+  const navLink = $("[data-nav-testi]");
+  if (navLink) navLink.hidden = false;
+  const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const track = $("#testiTrack"), dots = $("#testiDots");
+  track.innerHTML = list.map((t) => `
+    <article class="testi-card">
+      <div class="testi-card__stars" aria-label="5 estrelas">★★★★★</div>
+      <blockquote>${esc(t.texto)}</blockquote>
+      <footer>
+        ${t.foto ? `<img class="testi-card__avatar" src="${esc(t.foto)}" alt="${esc(t.nome)}" loading="lazy">`
+                 : `<span class="testi-card__avatar" aria-hidden="true">${esc(t.nome.trim()[0] || "🐝")}</span>`}
+        <div><strong>${esc(t.nome)}</strong><small>${esc(t.papel || "")}</small></div>
+      </footer>
+    </article>`).join("");
+
+  const cards = $$(".testi-card", track);
+  dots.innerHTML = cards.map((_, i) => `<button aria-label="Ir para depoimento ${i + 1}"></button>`).join("");
+  const dotBtns = $$("button", dots);
+  const prev = $(".testi__arrow--prev"), next = $(".testi__arrow--next");
+  const step = () => cards[0].getBoundingClientRect().width + 20;
+  const index = () => Math.round(track.scrollLeft / step());
+  function update() {
+    const i = index(), max = track.scrollWidth - track.clientWidth - 2;
+    dotBtns.forEach((d, k) => d.classList.toggle("is-active", k === i));
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= max;
+    const fits = max <= 0;
+    prev.hidden = next.hidden = dots.hidden = fits;
+  }
+  prev.addEventListener("click", () => track.scrollBy({ left: -step() }));
+  next.addEventListener("click", () => track.scrollBy({ left: step() }));
+  dotBtns.forEach((d, k) => d.addEventListener("click", () => track.scrollTo({ left: k * step() })));
+  track.addEventListener("scroll", () => requestAnimationFrame(update), { passive: true });
+  addEventListener("resize", update);
+  update();
+
+  // autoplay (pausa ao passar o mouse/tocar)
+  let paused = false;
+  ["pointerenter", "focusin", "touchstart"].forEach((ev) => track.addEventListener(ev, () => (paused = true), { passive: true }));
+  track.addEventListener("pointerleave", () => (paused = false));
+  setInterval(() => {
+    if (paused || document.hidden || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const max = track.scrollWidth - track.clientWidth - 2;
+    if (track.scrollLeft >= max) track.scrollTo({ left: 0 }); else track.scrollBy({ left: step() });
+  }, 6000);
+})();
