@@ -27,7 +27,7 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 10px); }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 10px); overflow-x: clip; }
 body {
   margin: 0; font-family: var(--font-body); color: var(--ink); background: var(--white);
   font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden;
@@ -167,7 +167,9 @@ h2 em { font-style: normal; font-weight: 900; }
 .phone__top { font-family: var(--font-head); font-weight: 700; font-size: .85rem; color: var(--blue); display: flex; align-items: center; gap: 8px; padding: 4px 6px 12px; border-bottom: 1px solid var(--line); }
 .phone__top em { font-style: normal; color: #E5484D; }
 .dot { width: 9px; height: 9px; border-radius: 50%; background: #E5484D; animation: pulse 1.4s infinite; }
-.chat { display: flex; flex-direction: column; gap: 10px; min-height: 330px; padding: 14px 4px 4px; justify-content: flex-end; }
+.chat { display: flex; flex-direction: column; gap: 10px; height: 330px; overflow: hidden; padding: 14px 4px 4px; justify-content: flex-end; }
+.chat > .msg { flex: none; }
+.chat { -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 36px); mask-image: linear-gradient(to bottom, transparent 0, #000 36px); }
 .msg { max-width: 82%; padding: .65em 1em; border-radius: 18px; font-size: .95rem; line-height: 1.35; animation: pop .35s cubic-bezier(.2,1.4,.5,1) both; }
 .msg small { display: block; font-size: .72rem; opacity: .7; font-weight: 700; margin-bottom: 2px; }
 .msg--teacher { background: var(--blue-50); color: var(--blue-900); align-self: flex-start; border-bottom-left-radius: 6px; }
@@ -543,7 +545,7 @@ input.is-invalid, select.is-invalid { border-color: #E5484D; background: #FFF5F5
   .units { padding: 12px; }
   .units__map, .units__map iframe { min-height: 300px; }
   .hero__ctas .btn { flex: 1 1 100%; }
-  .chat { min-height: 250px; }
+  .chat { height: 300px; }
   .float-bee--1 { top: -30px; left: -20px; }
 }
 
