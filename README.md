@@ -1,45 +1,56 @@
 # Seven Bees English School — Site
 
-Site institucional + loja de matrículas da **Seven Bees English School** (Londrina/PR).
+Site institucional + pré-matrícula da **Seven Bees English School** (Londrina/PR).
 HTML, CSS e JavaScript puros. Não precisa instalar nada: basta abrir o `index.html`
-no navegador ou publicar a pasta em qualquer hospedagem estática (Netlify, Vercel, GitHub Pages, Hostinger…).
+no navegador ou publicar a pasta em qualquer hospedagem estática (Cloudflare Pages, Netlify…).
 
 ## Estrutura
 ```
-index.html        página única com todas as seções
-css/style.css     estilos (cores da marca em :root)
-js/main.js        interações + CONFIG (preços, cursos, WhatsApp, unidades)
-assets/           favicon
-assets/videos/    vídeos (.mp4) e capas (.jpg)
+index.html         página única com todas as seções
+privacidade.html   Política de Privacidade (LGPD)
+condicoes.html     condições da pré-matrícula + regulamento da promoção de 40%
+css/style.css      estilos (cores da marca em :root)
+js/main.js         interações + CONFIG (WhatsApp, promoção, cursos, unidades, rodapé)
+assets/            favicon, ícone do celular e imagem de compartilhamento (og-image.jpg)
+assets/videos/     vídeos (.mp4), capas (.jpg) e legendas (.vtt)
+robots.txt, sitemap.xml
 ```
 
-## Recursos interativos
-- Chat animado em inglês no topo (simula uma aula de conversação)
-- Comparativo interativo **Turma tradicional × Turma Seven Bees**
-- **Teste de nível** (quiz) que recomenda o curso ideal e adiciona ao carrinho
-- **Loja de cursos** com filtro (Kids/Teens/Adultos/Empresas), escolha de modalidade e carrinho
-- Promoção da 1ª mensalidade (R$ 34,90 no Plano Grupo) aplicada automaticamente
-- **Checkout em 3 etapas**: dados do aluno → pagamento → confirmação (envia o pedido no WhatsApp)
-- Formulário de **aula demonstrativa grátis** (envia para o WhatsApp)
-- Unidades com mapa e botão "Como chegar"
-- Cards "Bee Curious" (expressões e curiosidades) que viram ao toque
-- Calculadora "Quanto custa não falar inglês?" (Empresas)
-- **Abelhas voando** pelas seções (fogem do cursor) e **abelha guia "Bee"** com dicas por seção
-- **Depoimentos** em carrossel (aparece quando houver depoimentos em `CONFIG.testimonials`)
-- **Vídeos**: "Medo da primeira aula?" (dicas) e depoimentos em vídeo da professora Tália e do aluno Paulo (`assets/videos/`)
-- FAQ, botão flutuante de WhatsApp, menu mobile, animações
+## Recursos
+- Chat animado em inglês no topo e comparativo **Turma tradicional × Turma Seven Bees**
+- **Teste de nível** que recomenda o curso (o resultado vai junto na mensagem do WhatsApp)
+- **Cursos sem preço** (pedido da escola), com Plano Grupo / VIP Individual e o selo **40% OFF no Plano Grupo**
+- Lista **“Meus cursos de interesse”**, com quantidade de alunos (para irmãos)
+- **Pré-matrícula em 2 etapas** (dados → preferências) que abre o WhatsApp com tudo pronto. Responsável obrigatório em Kids e Teens. Nada é cobrado pelo site.
+- Formulário de **aula grátis** (também pelo WhatsApp)
+- Unidades com mapa, “Como chegar” e horário
+- Bee Curious, calculadora de Empresas, FAQ, botão flutuante de WhatsApp
+- Abelhas voando (menos no celular) e **abelha guia**: um “Oi” na primeira visita, dicas só ao toque
+- Vídeos com capa e **legendas em português**
+- SEO: og:image, canonical, dados da escola e das 2 unidades para o Google (schema.org), robots e sitemap
 
 ## Como editar
-Tudo que muda com frequência fica no objeto `CONFIG` no início de `js/main.js`:
-- `whatsapp`: número que recebe pedidos e agendamentos
-- `promoFirstMonth`: valor promocional da 1ª mensalidade do Plano Grupo
-- `courses`: nome, descrição e preços (`price.grupo` / `price.vip`). Use `null` para "Sob consulta".
-- `testimonials`: depoimentos (nome, papel, texto e foto opcional)
-- `units`: endereços usados no mapa
+Quase tudo fica no objeto `CONFIG`, no início de `js/main.js`:
+- `whatsapp` / `whatsappLabel`: número que recebe pré-matrículas e agendamentos
+- `instagram`
+- `promo`: texto curto da promoção e a mensagem do botão “Quero meu desconto”
+- `courses`: cursos (`minor: true` pede o responsável; `quoteOnly: true` vira “Solicitar proposta”)
+- `testimonials`: depoimentos escritos (a seção aparece quando houver pelo menos 1)
+- `units`: endereço, CEP e **horário** de cada unidade
+- `company`: razão social e CNPJ do rodapé
 
-As abelhas voando são controladas pelo atributo `data-bees="N"` nas seções do `index.html` (N = quantidade).
+**Única cópia fora do CONFIG:** o bloco `application/ld+json` no `<head>` do `index.html`
+(telefone e endereços que o Google lê). Se mudar telefone ou endereço, mude lá também.
+
+As abelhas voando são controladas pelo atributo `data-bees="N"` nas seções do `index.html`.
+
+## Antes de publicar (checklist)
+1. Trocar `CONFIRMAR-DOMINIO` pelo domínio da escola no `index.html`, `robots.txt` e `sitemap.xml`.
+2. Procurar e resolver todos os `[CONFIRMAR]` (no site eles aparecem com fundo amarelo tracejado):
+   regra dos 40%, horários, CEP do Iate Clube, razão social/CNPJ, e-mail de contato, prazos.
+3. Pedir para alguém da escola ouvir os vídeos com legenda ligada (ver `D:\SevenBees\material\LEIA-ME.md`).
+4. Publicar na conta da escola (não na conta pessoal do desenvolvedor).
 
 ## Pagamento online
-Hoje a matrícula é registrada e enviada para o WhatsApp da escola, que confirma turma e envia a cobrança.
-Para cobrar automaticamente (Pix/cartão), dá para integrar Mercado Pago, PagSeguro, Asaas ou Stripe
-no envio do formulário de checkout (`cform.addEventListener("submit", …)` em `js/main.js`).
+O site não cobra nada: a pré-matrícula vai para o WhatsApp e a escola confirma turma, horário e valores.
+Cobrança automática (Pix/cartão) é um serviço à parte.

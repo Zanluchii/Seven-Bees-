@@ -5,13 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Seven Bees English School | Inglês que você realmente usa · Londrina</title>
   <meta name="description" content="Escola de inglês em Londrina com método focado em conversação, turmas reduzidas e organizadas por idade e nível. Unidades Zona Norte e Iate Clube. Agende sua aula grátis!">
-  <meta property="og:title" content="Seven Bees English School">
-  <meta property="og:description" content="Inglês que você realmente usa. Método focado em conversação, turmas reduzidas, resultado real.">
+  <script>document.documentElement.classList.add("js")</script>
+  <!-- DOMÍNIO: trocar "CONFIRMAR-DOMINIO" pelo domínio da escola aqui, no robots.txt e no sitemap.xml antes de publicar -->
+  <link rel="canonical" href="https://CONFIRMAR-DOMINIO/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Seven Bees English School">
+  <meta property="og:url" content="https://CONFIRMAR-DOMINIO/">
+  <meta property="og:title" content="Seven Bees English School · Inglês em Londrina">
+  <meta property="og:description" content="Inglês que você realmente usa: conversação desde a 1ª aula e turmas reduzidas. Garanta 40% de desconto no Plano Grupo.">
+  <meta property="og:image" content="https://CONFIRMAR-DOMINIO/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Seven Bees English School: inglês que você realmente usa, em Londrina">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#1747C9">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <!-- Dados para o Google (copiar aqui se mudar telefone ou endereço no CONFIG do js/main.js) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "EducationalOrganization",
+        "@id": "https://CONFIRMAR-DOMINIO/#escola",
+        "name": "Seven Bees English School",
+        "url": "https://CONFIRMAR-DOMINIO/",
+        "logo": "https://CONFIRMAR-DOMINIO/assets/apple-touch-icon.png",
+        "image": "https://CONFIRMAR-DOMINIO/assets/og-image.jpg",
+        "description": "Escola de inglês em Londrina com método focado em conversação e turmas reduzidas, para crianças, adolescentes, adultos e empresas.",
+        "telephone": "+55 43 98841-7010",
+        "sameAs": ["https://www.instagram.com/sevenbees_english/"],
+        "department": [{ "@id": "https://CONFIRMAR-DOMINIO/#zona-norte" }, { "@id": "https://CONFIRMAR-DOMINIO/#iate-clube" }]
+      },
+      {
+        "@type": ["LocalBusiness", "EducationalOrganization"],
+        "@id": "https://CONFIRMAR-DOMINIO/#zona-norte",
+        "name": "Seven Bees English School · Unidade Zona Norte",
+        "parentOrganization": { "@id": "https://CONFIRMAR-DOMINIO/#escola" },
+        "image": "https://CONFIRMAR-DOMINIO/assets/og-image.jpg",
+        "telephone": "+55 43 98841-7010",
+        "address": { "@type": "PostalAddress", "streetAddress": "Av. Alexandre Santoro, 1051 - Jardim dos Estados", "addressLocality": "Londrina", "addressRegion": "PR", "postalCode": "86082-000", "addressCountry": "BR" }
+      },
+      {
+        "@type": ["LocalBusiness", "EducationalOrganization"],
+        "@id": "https://CONFIRMAR-DOMINIO/#iate-clube",
+        "name": "Seven Bees English School · Unidade Iate Clube",
+        "parentOrganization": { "@id": "https://CONFIRMAR-DOMINIO/#escola" },
+        "image": "https://CONFIRMAR-DOMINIO/assets/og-image.jpg",
+        "telephone": "+55 43 98841-7010",
+        "address": { "@type": "PostalAddress", "streetAddress": "Av. Higienópolis, 2135 - Higienópolis", "addressLocality": "Londrina", "addressRegion": "PR", "addressCountry": "BR" }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800&family=Kaushan+Script&display=swap" rel="stylesheet">
+  <!-- fontes sem travar a primeira pintura (carregam em paralelo) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800&family=Kaushan+Script&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800&family=Kaushan+Script&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800&family=Kaushan+Script&display=swap"></noscript>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -36,8 +90,8 @@
     </nav>
 
     <div class="header__actions">
-      <button class="cart-btn" id="cartOpen" aria-label="Abrir carrinho">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.4 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.6" fill="currentColor"/><circle cx="17" cy="20" r="1.6" fill="currentColor"/></svg>
+      <button class="cart-btn" id="cartOpen" aria-label="Meus cursos de interesse" title="Meus cursos de interesse">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6a1 1 0 0 1 1 1v1H8V5a1 1 0 0 1 1-1zM8 6H6.5A1.5 1.5 0 0 0 5 7.5v12A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 17.5 6H16M8.5 12.5l2 2 4-4.5M8.5 17.5h7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <span class="cart-btn__count" id="cartCount">0</span>
       </button>
       <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
@@ -61,11 +115,10 @@
       </div>
       <div class="hero__promo">
         <div class="promo-tag">
-          <span>1ª mensalidade</span>
-          <s>R$ 249</s>
-          <strong>R$ 34<sup>,90</sup></strong>
+          <span>Plano Grupo</span>
+          <strong>40%<sup>OFF</sup></strong>
         </div>
-        <p>no <b>Plano Grupo</b>. O segundo semestre pode ser o começo da sua jornada no inglês.</p>
+        <p><b>Gostou?</b> Entre em contato agora mesmo e garanta <b>40% de desconto</b> no Plano Grupo. <a class="hero__promo-link" data-wa="promo" href="#aula-gratis">Quero meu desconto →</a></p>
       </div>
     </div>
 
@@ -134,9 +187,9 @@
     <div class="compare reveal">
       <div class="compare__head">
         <h3>Turma tradicional <span>×</span> Turma Seven Bees</h3>
-        <div class="switch" role="tablist" aria-label="Comparar tipos de turma">
-          <button role="tab" class="switch__btn" data-mode="trad" aria-selected="false">Tradicional</button>
-          <button role="tab" class="switch__btn is-active" data-mode="seven" aria-selected="true">Seven Bees</button>
+        <div class="switch" role="group" aria-label="Comparar tipos de turma">
+          <button type="button" class="switch__btn" data-mode="trad" aria-pressed="false">Tradicional</button>
+          <button type="button" class="switch__btn is-active" data-mode="seven" aria-pressed="true">Seven Bees</button>
           <span class="switch__thumb"></span>
         </div>
       </div>
@@ -166,27 +219,27 @@
   <div class="container">
     <div class="section__head reveal">
       <span class="eyebrow">Cursos e planos</span>
-      <h2>Escolha seu curso e <span class="script">matricule-se</span> online</h2>
-      <p>Selecione a modalidade, adicione ao carrinho e finalize sua matrícula em poucos minutos.</p>
+      <h2>Escolha seu curso e faça sua <span class="script">pré-matrícula</span></h2>
+      <p>Escolha a modalidade, toque em <b>Tenho interesse</b> e envie sua pré-matrícula pelo WhatsApp. Nada é cobrado pelo site.</p>
     </div>
 
-    <div class="filters reveal" role="tablist" aria-label="Filtrar cursos">
-      <button class="chip is-active" data-filter="all">Todos</button>
-      <button class="chip" data-filter="kids">Kids</button>
-      <button class="chip" data-filter="teens">Teens</button>
-      <button class="chip" data-filter="adults">Adultos</button>
-      <button class="chip" data-filter="business">Empresas</button>
+    <div class="filters reveal" role="group" aria-label="Filtrar cursos">
+      <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Todos</button>
+      <button type="button" class="chip" data-filter="kids" aria-pressed="false">Kids</button>
+      <button type="button" class="chip" data-filter="teens" aria-pressed="false">Teens</button>
+      <button type="button" class="chip" data-filter="adults" aria-pressed="false">Adultos</button>
+      <button type="button" class="chip" data-filter="business" aria-pressed="false">Empresas</button>
     </div>
 
     <div class="courses" id="courses"></div>
 
     <div class="promo-banner reveal">
       <div>
-        <span class="pill pill--blue">Promoção</span>
-        <h3>Primeira mensalidade de <s>R$ 249</s> por <strong>R$ 34,90</strong></h3>
-        <p>Válido para aulas no <b>Plano Grupo</b>. O desconto é aplicado automaticamente no carrinho.</p>
+        <span class="pill pill--blue">40% OFF</span>
+        <h3>Gostou? Entre em contato agora mesmo e garanta <strong>40% de desconto</strong> no Plano Grupo</h3>
+        <p>Fale com a nossa equipe pelo WhatsApp. <a href="condicoes.html#promocao">Condições da promoção</a></p>
       </div>
-      <a href="#cursos" class="btn btn--blue btn--lg" data-scroll-courses>Quero aproveitar</a>
+      <a class="btn btn--blue btn--lg" data-wa="promo" href="#aula-gratis">Quero meu desconto</a>
     </div>
   </div>
 </section>
@@ -196,7 +249,7 @@
   <div class="container fear">
     <div class="fear__video reveal">
       <figure class="vcard vcard--lg">
-        <video src="assets/videos/dicas-sem-medo.mp4" poster="assets/videos/dicas-sem-medo.jpg" preload="none" playsinline></video>
+        <video src="assets/videos/dicas-sem-medo.mp4" poster="assets/videos/dicas-sem-medo.jpg" preload="none" playsinline><track kind="captions" src="assets/videos/dicas-sem-medo.vtt" srclang="pt" label="Português" default></video>
         <button class="vcard__cover" aria-label="Assistir: dicas para não ter medo da primeira aula">
           <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
           <span class="vcard__badge">▶ Dicas · 30s</span>
@@ -237,11 +290,11 @@
 
     <form class="card form reveal" id="trialForm" novalidate>
       <h3>Reserve sua participação</h3>
-      <label>Nome completo
-        <input name="nome" required autocomplete="name" placeholder="Seu nome">
+      <label>Seu nome
+        <input name="nome" required autocomplete="name" placeholder="Seu nome completo" data-min="3">
       </label>
       <label>WhatsApp
-        <input name="tel" required inputmode="tel" autocomplete="tel" placeholder="(43) 9 0000-0000" data-mask="phone">
+        <input name="tel" required type="tel" inputmode="tel" autocomplete="tel" placeholder="(43) 90000-0000" data-mask="phone">
       </label>
       <div class="form__row">
         <label>Para quem?
@@ -263,12 +316,14 @@
           </select>
         </label>
       </div>
-      <fieldset class="radio-cards">
+      <label id="trialAluno" hidden>Nome do aluno (criança ou adolescente)
+        <input name="aluno" required placeholder="Nome de quem vai fazer a aula" data-min="2">
+      </label>
+      <fieldset class="radio-cards" id="trialUnits">
         <legend>Unidade</legend>
-        <label><input type="radio" name="unidade" value="Zona Norte" checked><span>📍 Zona Norte<small>Jardim dos Estados</small></span></label>
-        <label><input type="radio" name="unidade" value="Iate Clube"><span>📍 Iate Clube<small>Higienópolis</small></span></label>
       </fieldset>
       <button class="btn btn--blue btn--block btn--lg" type="submit">Agendar pelo WhatsApp</button>
+      <p class="form__legal">Ao enviar, abrimos o WhatsApp com a sua mensagem. Veja a <a href="privacidade.html">Política de Privacidade</a>.</p>
       <p class="form__msg" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -284,18 +339,11 @@
     </div>
 
     <div class="units reveal">
-      <div class="units__tabs" role="tablist">
-        <button class="unit-tab is-active" data-unit="0" role="tab" aria-selected="true">
-          <strong>Unidade Zona Norte</strong>
-          <span>Av. Alexandre Santoro, 1051 · Jardim dos Estados</span>
-        </button>
-        <button class="unit-tab" data-unit="1" role="tab" aria-selected="false">
-          <strong>Unidade Iate Clube</strong>
-          <span>Av. Higienópolis, 2135 · Higienópolis</span>
-        </button>
+      <div class="units__tabs">
+        <div class="units__list" id="unitTabs" role="group" aria-label="Escolher unidade"></div>
         <div class="units__info">
           <a class="btn btn--blue" id="unitRoute" target="_blank" rel="noopener">Como chegar</a>
-          <a class="btn btn--outline" href="https://wa.me/5543988417010" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn--outline" data-wa="Olá! Vim pelo site da Seven Bees e queria falar com a unidade." href="#aula-gratis">Falar no WhatsApp</a>
         </div>
       </div>
       <div class="units__map">
@@ -327,7 +375,7 @@
     </div>
     <div class="vtesti reveal">
       <figure class="vcard">
-        <video src="assets/videos/professora.mp4" poster="assets/videos/professora.jpg" preload="none" playsinline></video>
+        <video src="assets/videos/professora.mp4" poster="assets/videos/professora.jpg" preload="none" playsinline><track kind="captions" src="assets/videos/professora.vtt" srclang="pt" label="Português" default></video>
         <button class="vcard__cover" aria-label="Assistir depoimento da professora Tália">
           <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
           <span class="vcard__badge vcard__badge--yellow">Depoimento · Professora</span>
@@ -335,7 +383,7 @@
         <figcaption><strong>Teacher Tália</strong><small>Professora Seven Bees · fala sobre a nossa metodologia</small></figcaption>
       </figure>
       <figure class="vcard">
-        <video src="assets/videos/depoimento-aluno.mp4" poster="assets/videos/depoimento-aluno.jpg" preload="none" playsinline></video>
+        <video src="assets/videos/depoimento-aluno.mp4" poster="assets/videos/depoimento-aluno.jpg" preload="none" playsinline><track kind="captions" src="assets/videos/depoimento-aluno.vtt" srclang="pt" label="Português" default></video>
         <button class="vcard__cover" aria-label="Assistir depoimento do aluno Paulo">
           <span class="vcard__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
           <span class="vcard__badge">Depoimento · Aluno</span>
@@ -360,7 +408,7 @@
       <h2>O inglês que <span class="script">impulsiona</span> negócios</h2>
       <p>Capacite sua equipe para reuniões, negociações e atendimento internacional. Inglês para empreendedores, com aulas sob medida para a rotina da sua empresa.</p>
       <p class="biz__quote">“Yeah, let's sign the contract!”</p>
-      <a class="btn btn--blue btn--lg" href="https://wa.me/5543988417010?text=Ol%C3%A1!%20Tenho%20interesse%20no%20ingl%C3%AAs%20para%20empresas%20da%20Seven%20Bees." target="_blank" rel="noopener">Solicitar proposta</a>
+      <a class="btn btn--blue btn--lg" data-wa="Olá! Tenho interesse no inglês para empresas da Seven Bees." href="#faq">Solicitar proposta</a>
     </div>
     <div class="biz__card">
       <div class="calc">
@@ -404,12 +452,16 @@
         <p>Nossas turmas são reduzidas, para garantir que cada aluno tenha tempo de fala e acompanhamento de perto do professor.</p>
       </details>
       <details>
-        <summary>A promoção de R$ 34,90 vale para qualquer plano?</summary>
-        <p>A promoção da primeira mensalidade por R$ 34,90 vale para aulas no <b>Plano Grupo</b>. Ela é aplicada automaticamente no carrinho.</p>
+        <summary>Quanto custa a mensalidade?</summary>
+        <p>O valor depende do curso e da modalidade (Plano Grupo ou VIP Individual). Chame a gente no <a data-wa="Olá! Queria saber os valores dos cursos da Seven Bees." href="#aula-gratis">WhatsApp</a>: além de tirar suas dúvidas, você garante <b>40% de desconto no Plano Grupo</b>.</p>
       </details>
       <details>
-        <summary>Como finalizo a matrícula pelo site?</summary>
-        <p>Adicione o curso ao carrinho, preencha seus dados e escolha a forma de pagamento. Seu pedido é enviado para a nossa equipe, que confirma turma, horário e pagamento com você.</p>
+        <summary>Como funciona o desconto de 40%?</summary>
+        <p>O desconto de 40% vale para o <b>Plano Grupo</b>. Para garantir o seu, é só entrar em contato pelo WhatsApp ou enviar a pré-matrícula pelo site. As regras completas estão nas <a href="condicoes.html#promocao">condições da promoção</a>. <span class="confirmar">[CONFIRMAR: em quais mensalidades vale e até quando]</span></p>
+      </details>
+      <details>
+        <summary>Como funciona a pré-matrícula pelo site?</summary>
+        <p>Toque em <b>Tenho interesse</b> nos cursos que quiser, preencha seus dados e envie pelo WhatsApp. Nossa equipe confirma turma, horário e valores com você. Nada é cobrado pelo site.</p>
       </details>
       <details>
         <summary>Vocês têm aulas para empresas?</summary>
@@ -425,7 +477,7 @@
     <h2>Seu futuro <span class="script">não pode esperar.</span></h2>
     <p>Invista em inglês hoje e colha os resultados amanhã.</p>
     <div class="hero__ctas">
-      <a href="#cursos" class="btn btn--yellow btn--lg">Matricule-se agora</a>
+      <a class="btn btn--yellow btn--lg" data-wa="promo" href="#cursos">Quero meus 40% de desconto</a>
       <a href="#aula-gratis" class="btn btn--ghost btn--lg">Aula grátis</a>
     </div>
   </div>
@@ -444,86 +496,86 @@
       <p class="footer__tag">Language School · Inglês que você realmente usa.</p>
     </div>
     <div>
-      <h4>Unidades</h4>
-      <p><b>Zona Norte</b><br>Av. Alexandre Santoro, 1051<br>Jardim dos Estados · Londrina/PR</p>
-      <p><b>Iate Clube</b><br>Av. Higienópolis, 2135<br>Higienópolis · Londrina/PR</p>
+      <h3 class="footer__title">Unidades</h3>
+      <div id="footerUnits"></div>
     </div>
     <div>
-      <h4>Contato</h4>
-      <p><a href="https://wa.me/5543988417010" target="_blank" rel="noopener">WhatsApp (43) 98841-7010</a></p>
-      <p><a href="https://www.instagram.com/sevenbees_english/" target="_blank" rel="noopener">@sevenbees_english</a></p>
+      <h3 class="footer__title">Contato</h3>
+      <ul class="footer__links">
+        <li><a data-wa="" data-wa-label href="#aula-gratis">WhatsApp</a></li>
+        <li><a data-ig target="_blank" rel="noopener" href="#">Instagram</a></li>
+      </ul>
     </div>
     <div>
-      <h4>Navegue</h4>
-      <p><a href="#metodo">Método</a><br><a href="#cursos">Cursos</a><br><a href="#teste">Teste de nível</a><br><a href="#faq">Dúvidas</a></p>
+      <h3 class="footer__title">Navegue</h3>
+      <ul class="footer__links">
+        <li><a href="#metodo">Método</a></li>
+        <li><a href="#cursos">Cursos</a></li>
+        <li><a href="#teste">Teste de nível</a></li>
+        <li><a href="#faq">Dúvidas</a></li>
+        <li><a href="privacidade.html">Política de Privacidade</a></li>
+        <li><a href="condicoes.html">Condições e promoção</a></li>
+      </ul>
     </div>
   </div>
   <div class="container footer__bottom">
-    <span>© <span id="year"></span> Seven Bees English School. Todos os direitos reservados.</span>
+    <span>© <span id="year"></span> <span id="legal">Seven Bees English School</span>. Todos os direitos reservados.</span>
   </div>
 </footer>
 
 <!-- WhatsApp flutuante -->
-<a class="wa-float" href="https://wa.me/5543988417010?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Seven%20Bees." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+<a class="wa-float" data-wa="Olá! Vim pelo site da Seven Bees." href="#aula-gratis" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 0 0 2.1-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.7-.5z"/></svg>
 </a>
 
 <!-- ============ CARRINHO ============ -->
 <div class="overlay" id="overlay" hidden></div>
-<aside class="drawer" id="cart" aria-label="Carrinho" aria-hidden="true">
+<aside class="drawer" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true">
   <div class="drawer__head">
-    <h3>Seu carrinho</h3>
-    <button class="icon-btn" id="cartClose" aria-label="Fechar carrinho">✕</button>
+    <h3 id="cartTitle">Meus cursos de interesse</h3>
+    <button type="button" class="icon-btn" id="cartClose" aria-label="Fechar lista">✕</button>
   </div>
   <div class="drawer__body" id="cartItems"></div>
   <div class="drawer__foot">
     <div class="totals" id="cartTotals"></div>
-    <button class="btn btn--yellow btn--block btn--lg" id="checkoutBtn">Finalizar matrícula</button>
+    <button type="button" class="btn btn--yellow btn--block btn--lg" id="checkoutBtn">Fazer pré-matrícula</button>
   </div>
 </aside>
 
-<!-- ============ CHECKOUT ============ -->
+<!-- ============ PRÉ-MATRÍCULA ============ -->
 <div class="modal" id="checkout" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle" hidden>
   <div class="modal__box">
-    <button class="icon-btn modal__close" data-close aria-label="Fechar">✕</button>
-    <div class="steps"><span class="is-active">1. Dados</span><span>2. Pagamento</span><span>3. Confirmação</span></div>
+    <button type="button" class="icon-btn modal__close" data-close aria-label="Fechar pré-matrícula">✕</button>
+    <div class="steps" aria-hidden="true"><span class="is-active">1. Dados</span><span>2. Unidade</span><span>3. WhatsApp</span></div>
 
     <form id="checkoutForm" novalidate>
       <div class="step is-active" data-step="1">
-        <h3 id="checkoutTitle">Dados do aluno</h3>
-        <label>Nome do aluno<input name="aluno" required placeholder="Nome completo"></label>
-        <label>Responsável financeiro <small>(se for menor de idade)</small><input name="responsavel" placeholder="Opcional"></label>
+        <h3 id="checkoutTitle">Pré-matrícula · seus dados</h3>
+        <label><span id="coAlunoLabel">Nome do aluno</span><input name="aluno" required autocomplete="off" placeholder="Nome completo" data-min="3" enterkeyhint="next"></label>
+        <label id="coResp" hidden><span>Nome do responsável <small>(obrigatório para Kids e Teens)</small></span><input name="responsavel" required autocomplete="name" placeholder="Pai, mãe ou responsável legal" data-min="3" enterkeyhint="next"></label>
         <div class="form__row">
-          <label>WhatsApp<input name="tel" required inputmode="tel" data-mask="phone" placeholder="(43) 9 0000-0000"></label>
-          <label>E-mail<input name="email" type="email" required placeholder="voce@email.com"></label>
+          <label>WhatsApp<input name="tel" required type="tel" inputmode="tel" autocomplete="tel" data-mask="phone" placeholder="(43) 90000-0000" enterkeyhint="next"></label>
+          <label><span>E-mail <small>(opcional)</small></span><input name="email" type="email" autocomplete="email" placeholder="voce@email.com" enterkeyhint="next"></label>
         </div>
-        <label>Unidade
-          <select name="unidade" required>
-            <option value="Zona Norte">Zona Norte · Av. Alexandre Santoro, 1051</option>
-            <option value="Iate Clube">Iate Clube · Av. Higienópolis, 2135</option>
-          </select>
-        </label>
+        <button type="submit" class="btn btn--blue btn--block btn--lg">Continuar</button>
+        <p class="form__msg" role="status" aria-live="polite"></p>
+      </div>
+
+      <div class="step" data-step="2">
+        <h3>Preferências</h3>
+        <fieldset class="radio-cards" id="coUnits">
+          <legend>Unidade</legend>
+        </fieldset>
         <label>Melhor período
           <select name="periodo" required>
             <option value="">Selecione</option><option>Manhã</option><option>Tarde</option><option>Noite</option><option>Sábado</option>
           </select>
         </label>
-        <button type="button" class="btn btn--blue btn--block btn--lg" data-next>Continuar</button>
-      </div>
-
-      <div class="step" data-step="2">
-        <h3>Forma de pagamento</h3>
-        <fieldset class="radio-cards radio-cards--col">
-          <legend class="sr-only">Forma de pagamento</legend>
-          <label><input type="radio" name="pagamento" value="Pix" checked><span>⚡ Pix<small>Aprovação imediata</small></span></label>
-          <label><input type="radio" name="pagamento" value="Cartão de crédito"><span>💳 Cartão de crédito<small>Mensalidade recorrente</small></span></label>
-          <label><input type="radio" name="pagamento" value="Boleto"><span>🧾 Boleto<small>Vencimento mensal</small></span></label>
-        </fieldset>
         <div class="summary" id="checkoutSummary"></div>
-        <label class="check"><input type="checkbox" name="aceite" required> Li e concordo com as condições de matrícula.</label>
+        <label class="check"><input type="checkbox" name="aceite" required> <span>Li e concordo com as <a href="condicoes.html" target="_blank" rel="noopener">condições de matrícula e da promoção</a> e com a <a href="privacidade.html" target="_blank" rel="noopener">Política de Privacidade</a>.</span></label>
         <div class="form__row">
           <button type="button" class="btn btn--outline btn--lg" data-prev>Voltar</button>
-          <button type="submit" class="btn btn--yellow btn--lg">Confirmar matrícula</button>
+          <button type="submit" class="btn btn--yellow btn--lg">Enviar pelo WhatsApp</button>
         </div>
         <p class="form__msg" role="status" aria-live="polite"></p>
       </div>
@@ -531,9 +583,10 @@
       <div class="step" data-step="3">
         <div class="success">
           <div class="success__bee"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#bee"/></svg></div>
-          <h3>Welcome to the hive! 🐝</h3>
-          <p>Seu pedido <b id="orderId"></b> foi registrado. Abrimos o WhatsApp com o resumo da matrícula para nossa equipe confirmar turma, horário e enviar o pagamento.</p>
-          <a class="btn btn--blue btn--lg" id="orderWa" target="_blank" rel="noopener">Abrir WhatsApp novamente</a>
+          <h3>Falta só um passo! 🐝</h3>
+          <p>Abrimos o WhatsApp com a sua pré-matrícula. <b>Toque em Enviar por lá</b> para a nossa equipe confirmar turma, horário e valores com você.</p>
+          <a class="btn btn--blue btn--lg" id="orderWa" target="_blank" rel="noopener">Abrir o WhatsApp</a>
+          <button type="button" class="btn btn--outline" data-close>Fechar</button>
         </div>
       </div>
     </form>
@@ -542,12 +595,13 @@
 
 <!-- Abelha guia -->
 <div class="guide" id="guide">
-  <div class="guide__bubble" id="guideBubble" role="status" aria-live="polite">
-    <button class="guide__close" id="guideClose" aria-label="Fechar dica">✕</button>
+  <div class="guide__bubble" id="guideBubble" role="status">
+    <button type="button" class="guide__close" id="guideClose" aria-label="Fechar dica">✕</button>
     <p id="guideText"></p>
     <a href="#" class="guide__action" id="guideAction"></a>
   </div>
-  <button class="guide__bee" id="guideBee" aria-label="Abelha guia: mostrar dica">
+  <span class="guide__hello" id="guideHello" hidden>Oi! Sou a <b>Bee</b>. Toque em mim para dicas 🐝</span>
+  <button type="button" class="guide__bee" id="guideBee" aria-label="Abelha guia: mostrar uma dica" aria-expanded="false">
     <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#bee"/></svg>
   </button>
 </div>

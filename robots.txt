@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Trocar CONFIRMAR-DOMINIO pelo domínio da escola antes de publicar
+Sitemap: https://CONFIRMAR-DOMINIO/sitemap.xml
