@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.7bees.com.br/sitemap.xml
+Sitemap: https://sevenbees.com.br/sitemap.xml

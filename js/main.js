@@ -11,7 +11,7 @@ const CONFIG = {
   whatsapp: "5543988417010",
   whatsappLabel: "(43) 98841-7010",
   instagram: "sevenbees_english", // [CONFIRMAR]
-  email: "contato@7bees.com.br",
+  email: "contato@sevenbees.com.br",
 
   // A escola pediu para NÃO mostrar preços no site. A chamada é esta:
   promo: {
@@ -66,8 +66,9 @@ const CONFIG = {
     },
     {
       id: "iate-clube", name: "Unidade Iate Clube", short: "Iate Clube",
-      street: "Av. Higienópolis, 2135", district: "Higienópolis", city: "Londrina/PR", cep: "", // CEP [CONFIRMAR]
+      street: "Av. Higienópolis, 2135", district: "Higienópolis", city: "Londrina/PR", cep: "86015-010",
       hours: "Seg a sex, 8h às 22h · Sáb, 8h às 16h",
+      hoursCheck: "fechamento de sábado", // [CONFIRMAR] a escola disse que abre sáb às 8h; o horário de fechar ainda não veio
     },
   ],
 
@@ -126,7 +127,7 @@ $$("[data-email]").forEach((a) => { a.href = `mailto:${CONFIG.email}`; a.textCon
 $$("[data-promo-short]").forEach((el) => (el.textContent = CONFIG.promo.short));
 
 const unitAddress = (u) => `${u.street} - ${u.district}, ${u.city.replace("/", " - ")}${u.cep ? `, ${u.cep}` : ""}`;
-const unitHours = (u) => (u.hours ? esc(u.hours) : confirmar("horário"));
+const unitHours = (u) => (u.hours ? esc(u.hours) + (u.hoursCheck ? " " + confirmar(u.hoursCheck) : "") : confirmar("horário"));
 $("#footerUnits").innerHTML = CONFIG.units.map((u) => `
   <p><b>${esc(u.short)}</b><br>${esc(u.street)}<br>${esc(u.district)} · ${esc(u.city)}${u.cep ? ` · CEP ${esc(u.cep)}` : ` · ${confirmar("CEP")}`}<br><small>${unitHours(u)}</small></p>`).join("");
 const unitRadios = (name) => CONFIG.units.map((u, i) => `
