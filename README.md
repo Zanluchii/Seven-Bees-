@@ -37,6 +37,7 @@ Quase tudo fica no objeto `CONFIG`, no início de `js/main.js`:
 - `courses`: cursos (`minor: true` pede o responsável; `quoteOnly: true` vira “Solicitar proposta”)
 - `testimonials`: depoimentos escritos (a seção aparece quando houver pelo menos 1)
 - `units`: endereço, CEP e **horário** de cada unidade
+- `email`: e-mail de contato
 - `company`: razão social e CNPJ do rodapé
 
 **Única cópia fora do CONFIG:** o bloco `application/ld+json` no `<head>` do `index.html`
@@ -45,9 +46,9 @@ Quase tudo fica no objeto `CONFIG`, no início de `js/main.js`:
 As abelhas voando são controladas pelo atributo `data-bees="N"` nas seções do `index.html`.
 
 ## Antes de publicar (checklist)
-1. Trocar `CONFIRMAR-DOMINIO` pelo domínio da escola no `index.html`, `robots.txt` e `sitemap.xml`.
+1. O domínio já está como `www.7bees.com.br` (canonical, og:url, schema, robots e sitemap).
 2. Procurar e resolver todos os `[CONFIRMAR]` (no site eles aparecem com fundo amarelo tracejado):
-   regra dos 40%, horários, CEP do Iate Clube, razão social/CNPJ, e-mail de contato, prazos.
+   regra dos 40%, CEP do Iate Clube, WhatsApp/Instagram, prazo de guarda dos dados, datas das páginas legais.
 3. Pedir para alguém da escola ouvir os vídeos com legenda ligada (ver `D:\SevenBees\material\LEIA-ME.md`).
 4. Publicar na conta da escola (não na conta pessoal do desenvolvedor).
 

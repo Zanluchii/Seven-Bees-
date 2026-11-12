@@ -11,6 +11,7 @@ const CONFIG = {
   whatsapp: "5543988417010",
   whatsappLabel: "(43) 98841-7010",
   instagram: "sevenbees_english", // [CONFIRMAR]
+  email: "contato@7bees.com.br",
 
   // A escola pediu para NÃO mostrar preços no site. A chamada é esta:
   promo: {
@@ -56,22 +57,22 @@ const CONFIG = {
     // { nome: "Paulo", papel: "Aluno · Teens", texto: "Escreva aqui o depoimento.", foto: "" },
   ],
 
-  // Unidades. hours vazio = aparece "[CONFIRMAR]" no site.
+  // Unidades. hours vazio = aparece "[CONFIRMAR]" no site. Domingo: fechado.
   units: [
     {
       id: "zona-norte", name: "Unidade Zona Norte", short: "Zona Norte",
       street: "Av. Alexandre Santoro, 1051", district: "Jardim dos Estados", city: "Londrina/PR", cep: "86082-000",
-      hours: "", // [CONFIRMAR] ex.: "Seg a sex, 8h às 21h · Sáb, 8h às 12h"
+      hours: "Seg a sex, 8h às 22h · Sáb, 8h às 16h",
     },
     {
       id: "iate-clube", name: "Unidade Iate Clube", short: "Iate Clube",
       street: "Av. Higienópolis, 2135", district: "Higienópolis", city: "Londrina/PR", cep: "", // CEP [CONFIRMAR]
-      hours: "", // [CONFIRMAR]
+      hours: "Seg a sex, 8h às 22h · Sáb, 8h às 16h",
     },
   ],
 
-  // Rodapé (Decreto 7.962/2013). Preencher com os dados da escola. [CONFIRMAR]
-  company: { legalName: "", cnpj: "" },
+  // Rodapé (Decreto 7.962/2013)
+  company: { legalName: "SEVEN BEES LANGUAGE SCHOOL LTDA - ME", cnpj: "28.285.365/0001-29" },
 };
 
 /* ---------- Utilidades ---------- */
@@ -121,6 +122,7 @@ $$("[data-ig]").forEach((a) => {
   a.href = `https://www.instagram.com/${CONFIG.instagram}/`;
   a.textContent = `@${CONFIG.instagram}`;
 });
+$$("[data-email]").forEach((a) => { a.href = `mailto:${CONFIG.email}`; a.textContent = CONFIG.email; });
 $$("[data-promo-short]").forEach((el) => (el.textContent = CONFIG.promo.short));
 
 const unitAddress = (u) => `${u.street} - ${u.district}, ${u.city.replace("/", " - ")}${u.cep ? `, ${u.cep}` : ""}`;
